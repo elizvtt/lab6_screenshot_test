@@ -28,7 +28,10 @@ jobs:
       run: chmod -R +x ./node_modules/.bin
 
     - name: Install Playwright browsers
-      run: npx playwright install
+      run: npx playwright install --with-deps
+
+    - name: Update snapshots
+      run: npx playwright test --update-snapshots
 
     - name: Run tests
       run: npm test
